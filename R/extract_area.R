@@ -33,7 +33,10 @@ extract_area <- function(x, coords, spatial, area) {
                             coords = coords,
                             crs = sf::st_crs(spatial))
 
-  intersection <- as.integer(sf::st_intersects(points_sf, spatial))
+  intersection <- as.integer(
+    sf::st_intersects(
+      sf::st_geometry(points_sf),
+      sf::st_geometry(spatial)))
   a <- ifelse(is.na(intersection), "",
               as.character(spatial[[area]][intersection]))
 

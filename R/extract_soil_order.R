@@ -41,7 +41,10 @@ extract_soil_order <- function(x, coords) {
                             coords = coords,
                             crs = sf::st_crs(daas))
 
-  intersection <- as.integer(sf::st_intersects(points_sf, daas))
+  intersection <- as.integer(
+    sf::st_intersects(
+      sf::st_geometry(points_sf),
+      sf::st_geometry(daas)))
   soil <- ifelse(is.na(intersection), "",
                  as.character(daas$SOIL[intersection]))
 

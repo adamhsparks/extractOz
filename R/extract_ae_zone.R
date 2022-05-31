@@ -24,7 +24,10 @@ extract_ae_zone <- function(x, coords) {
                             coords = coords,
                             crs = sf::st_crs(aez))
 
-  intersection <- as.integer(sf::st_intersects(points_sf, aez))
+  intersection <- as.integer(
+    sf::st_intersects(
+      sf::st_geometry(points_sf),
+      aez))
   zone <- ifelse(is.na(intersection), "",
                  as.character(aez$AEZ[intersection]))
 
