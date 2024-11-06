@@ -1,38 +1,38 @@
 Package: extractOz
-Title: Extract Australian Soil, Weather and GRDC Agro-ecological Zone Information from GPS Points
-Version: 1.1.8
-Authors@R: c(person(given = "Adam H.", family = "Sparks",
-                    email = "adam.sparks@dpird.wa.gov.au",
-                    role = c("aut", "ccp"),
-                    comment = c(ORCID = "0000-0002-0061-8359")),
-             person(given = "Rodrigo", family = "Pires",
-                    email = "rodrigo.pires@dpird.wa.gov.au",
-                    role = c("aut", "cre"),
-                    comment = c(ORCID = "0000-0001-7384-6849")),
-             person(given = "Western Australia Agriculture Authority (WAAA)",
-                    role = "cph",
-                    comment = "Provided support through Adam Sparks's time."),
-             person(given = "Grains Research and Development Corporation",
-                    role = c("fnd", "cph"),
-                    comment = "GRDC Project GRI2007-001RTX")
-   )
-Description: Extracts point data for a given GPS coordinate that includes major
-  soil order, weather and GRDC agro-ecological zone information at that point.
-Encoding: UTF-8
-Roxygen: list(markdown = TRUE, roclets = c("collate", "namespace", "rd",
-    "roxyglobals::global_roclet"))
-RoxygenNote: 7.3.2
+Title: Extract Australian Soil, Weather and GRDC Agro-ecological Zone
+    Information With GPS Points
+Version: 1.2.0
+Authors@R: c(
+    person("Adam H.", "Sparks", , "adam.sparks@dpird.wa.gov.au", role = c("aut", "ccp"),
+           comment = c(ORCID = "0000-0002-0061-8359")),
+    person("Rodrigo", "Pires", , "rodrigo.pires@dpird.wa.gov.au", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0001-7384-6849")),
+    person("Western Australia Agriculture Authority (WAAA)", role = "cph",
+           comment = "Provided support through Adam Sparks's time."),
+    person("Grains Research and Development Corporation", role = c("fnd", "cph"),
+           comment = "GRDC Project GRI2007-001RTX")
+  )
+Description: Extracts point data for a given GPS coordinate that includes
+    major soil order, weather and GRDC agro-ecological zone information at
+    that point.
+License: GPL (>= 3)
+URL: https://github.com/DPIRD-FSI/extractOz,
+    https://dpird-fsi.github.io/extractOz/
+BugReports: https://github.com/DPIRD-FSI/extractOz/issues
+Depends: 
+    R (>= 4.0.0)
 Imports:
-  curl,
-  data.table,
-  httr,
-  methods,
-  nasapower,
-  purrr,
-  sf,
-  stats,
-  utils,
-  weatherOz
+    curl,
+    data.table,
+    httr,
+    methods,
+    nasapower,
+    nert,
+    purrr,
+    sf,
+    stats,
+    utils,
+    weatherOz
 Suggests:
     knitr,
     readr,
@@ -42,18 +42,21 @@ Suggests:
     testthat (>= 3.0.0),
     tidyverse,
     vcr (>= 0.6.0)
-Depends: R (>= 4.0.0)
-Remotes: https://github.com/DPIRD-FSI/weatherOz.git
-VignetteBuilder: knitr
-License: GPL (>= 3)
-NeedsCompilation: no
-Language: en-US
-X-schema.org-applicationCategory: Tools
-X-schema.org-keywords: agriculture, Australia, agroecology, soils, weather, weather-data, soils-data, agriculture-research
-X-schema.org-isPartOf: https://www.dpird.wa.gov.au/
-URL: https://github.com/DPIRD-FSI/extractOz, https://dpird-fsi.github.io/extractOz/
-BugReports: https://github.com/DPIRD-FSI/extractOz/issues
-LazyData: true
-LazyDataCompression: xz
+VignetteBuilder: 
+    knitr
+Remotes: 
+    https://github.com/AAGI-AUS/nert
 Config/roxyglobals/filename: generated-globals.R
 Config/roxyglobals/unique: FALSE
+Encoding: UTF-8
+Language: en-US
+LazyData: true
+LazyDataCompression: xz
+NeedsCompilation: no
+Roxygen: list(markdown = TRUE, roclets = c("collate", "namespace", "rd",
+    "roxyglobals::global_roclet"))
+RoxygenNote: 7.3.2
+X-schema.org-applicationCategory: Tools
+X-schema.org-isPartOf: https://www.dpird.wa.gov.au/
+X-schema.org-keywords: agriculture, Australia, agroecology, soils,
+    weather, weather-data, soils-data, agriculture-research
