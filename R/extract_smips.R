@@ -75,14 +75,20 @@ extract_smips <- function(x,
                             coords = c("longitude", "latitude"),
                             crs = terra::crs(tern))
 
-  out <- data.table::as.data.table(
-    terra::extract(x = tern, y = points_sf, xy = TRUE))
+  out <- data.table::as.data.table(terra::extract(x = tern,
+                                                  y = points_sf,
+                                                  xy = TRUE))
   out[, date := as.Date(day)]
 
-    data.table::setnames(
+  smips_dat_col <- names(out)[[2]]
+  data.table::setnames(
     out,
-    old = c("x", "y", names(out)[[2]]),
-    new = c("smips_longitude", "smips_latitude", paste0("smips_", collection))
+    old = c("x", "y", smips_dat_col),
+    new = c(
+      "smips_longitude",
+      "smips_latitude",
+      substr(smips_dat_col, 1, nchar(smips_dat_col) - 9)
+    )
   )
 
   out <- cbind(x, out)[, -c("ID")]
