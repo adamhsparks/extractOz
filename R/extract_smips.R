@@ -57,8 +57,8 @@ extract_smips <- function(x,
                           collection = "totalbucket",
                           day,
                           api_key = nert::get_key(),
-                          max_tries = 3,
-                          initial_delay = 1) {
+                          max_tries = 3L,
+                          initial_delay = 1L) {
   .check_lonlat(x)
 
   tern <- nert::read_cog(data,
