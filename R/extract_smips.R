@@ -77,7 +77,7 @@ extract_smips <- function(x,
 
   out <- data.table::as.data.table(
     terra::extract(x = tern, y = points_sf, xy = TRUE))
-  out[, date := day]
+  out[, date := as.Date(day)]
 
     data.table::setnames(
     out,
