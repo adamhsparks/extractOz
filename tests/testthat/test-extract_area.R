@@ -1,6 +1,7 @@
 
 test_that("extract_area() extracts proper areas", {
   # see "tests/helper_locs.R" for 'locs'
+
   ae_zones <-
     extract_area(x = locs,
                  spatial = aez,
