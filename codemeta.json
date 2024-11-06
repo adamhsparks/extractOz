@@ -3,18 +3,18 @@
   "@type": "SoftwareSourceCode",
   "identifier": "extractOz",
   "description": "Extracts point data for a given GPS coordinate that includes major soil order, weather and GRDC agro-ecological zone information at that point.",
-  "name": "extractOz: Extract Australian Soil, Weather and GRDC Agro-ecological Zone Information from GPS Points",
+  "name": "extractOz: Extract Australian Soil, Weather and GRDC Agro-ecological Zone\n    Information With GPS Points",
   "relatedLink": "https://dpird-fsi.github.io/extractOz/",
   "codeRepository": "https://github.com/DPIRD-FSI/extractOz",
   "issueTracker": "https://github.com/DPIRD-FSI/extractOz/issues",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "1.1.8",
+  "version": "1.2.0",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.4.1 (2024-06-14)",
+  "runtimePlatform": "R version 4.4.2 (2024-10-31)",
   "author": [
     {
       "@type": "Person",
@@ -159,6 +159,12 @@
   "softwareRequirements": {
     "1": {
       "@type": "SoftwareApplication",
+      "identifier": "R",
+      "name": "R",
+      "version": ">= 4.0.0"
+    },
+    "2": {
+      "@type": "SoftwareApplication",
       "identifier": "curl",
       "name": "curl",
       "provider": {
@@ -169,7 +175,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=curl"
     },
-    "2": {
+    "3": {
       "@type": "SoftwareApplication",
       "identifier": "data.table",
       "name": "data.table",
@@ -181,7 +187,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=data.table"
     },
-    "3": {
+    "4": {
       "@type": "SoftwareApplication",
       "identifier": "httr",
       "name": "httr",
@@ -193,12 +199,12 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=httr"
     },
-    "4": {
+    "5": {
       "@type": "SoftwareApplication",
       "identifier": "methods",
       "name": "methods"
     },
-    "5": {
+    "6": {
       "@type": "SoftwareApplication",
       "identifier": "nasapower",
       "name": "nasapower",
@@ -210,7 +216,13 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=nasapower"
     },
-    "6": {
+    "7": {
+      "@type": "SoftwareApplication",
+      "identifier": "nert",
+      "name": "nert",
+      "sameAs": "https://github.com/https://github.com/AAGI-AUS/nert"
+    },
+    "8": {
       "@type": "SoftwareApplication",
       "identifier": "purrr",
       "name": "purrr",
@@ -222,7 +234,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=purrr"
     },
-    "7": {
+    "9": {
       "@type": "SoftwareApplication",
       "identifier": "sf",
       "name": "sf",
@@ -234,35 +246,36 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=sf"
     },
-    "8": {
+    "10": {
       "@type": "SoftwareApplication",
       "identifier": "stats",
       "name": "stats"
     },
-    "9": {
+    "11": {
       "@type": "SoftwareApplication",
       "identifier": "utils",
       "name": "utils"
     },
-    "10": {
+    "12": {
       "@type": "SoftwareApplication",
       "identifier": "weatherOz",
-      "name": "weatherOz"
-    },
-    "11": {
-      "@type": "SoftwareApplication",
-      "identifier": "R",
-      "name": "R",
-      "version": ">= 4.0.0"
+      "name": "weatherOz",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=weatherOz"
     },
     "SystemRequirements": null
   },
   "applicationCategory": "Tools",
   "isPartOf": "https://www.dpird.wa.gov.au/",
   "keywords": ["agriculture", "Australia", "agroecology", "soils", "weather", "weather-data", "soils-data", "agriculture-research", "r-package", "agriculture-data", "australia"],
-  "fileSize": "1350.501KB",
+  "fileSize": "1357.068KB",
   "releaseNotes": "https://github.com/DPIRD-FSI/extractOz/blob/master/NEWS.md",
   "readme": "https://github.com/DPIRD-FSI/extractOz/blob/main/README.md",
-  "contIntegration": ["https://github.com/DPIRD-FSI/extractOz/actions", "https://codecov.io/gh/DPIRD-FSI/extractOz"],
+  "contIntegration": ["https://codecov.io/gh/DPIRD-FSI/extractOz", "https://github.com/DPIRD-FSI/extractOz/actions/workflows/R-CMD-check.yaml"],
   "developmentStatus": "https://www.repostatus.org/#active"
 }
