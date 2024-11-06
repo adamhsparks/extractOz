@@ -18,6 +18,7 @@
 #'
 #'  Defaults to \dQuote{totalbucket}. Multiple `collections` are supported,
 #'  _e.g._, `collection = c("SMindex", "totalbucket")`.
+#'
 #' @param day A vector of date(s) to query, _e.g._, `day = "2017-12-31"` or
 #'  `day = seq.Date(as.Date("2017-12-01"), as.Date("2017-12-31"), "days")`, both
 #'  `Character` and `Date` classes are accepted.
