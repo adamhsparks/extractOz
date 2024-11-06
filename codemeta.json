@@ -253,10 +253,22 @@
     },
     "11": {
       "@type": "SoftwareApplication",
+      "identifier": "terra",
+      "name": "terra",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=terra"
+    },
+    "12": {
+      "@type": "SoftwareApplication",
       "identifier": "utils",
       "name": "utils"
     },
-    "12": {
+    "13": {
       "@type": "SoftwareApplication",
       "identifier": "weatherOz",
       "name": "weatherOz",
@@ -273,7 +285,7 @@
   "applicationCategory": "Tools",
   "isPartOf": "https://www.dpird.wa.gov.au/",
   "keywords": ["agriculture", "Australia", "agroecology", "soils", "weather", "weather-data", "soils-data", "agriculture-research", "r-package", "agriculture-data", "australia"],
-  "fileSize": "1357.068KB",
+  "fileSize": "1357.082KB",
   "releaseNotes": "https://github.com/DPIRD-FSI/extractOz/blob/master/NEWS.md",
   "readme": "https://github.com/DPIRD-FSI/extractOz/blob/main/README.md",
   "contIntegration": ["https://codecov.io/gh/DPIRD-FSI/extractOz", "https://github.com/DPIRD-FSI/extractOz/actions/workflows/R-CMD-check.yaml"],
