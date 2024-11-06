@@ -61,7 +61,9 @@ retrying the download.  This increases as the tries increment.  Defaults to
 }
 \value{
 A \link[data.table:data.table]{data.table::data.table} with the provided \acronym{GPS}
-coordinates and the respective soil moisture data from \acronym{SMIPS}
+coordinates and the respective soil moisture data from \acronym{SMIPS} and
+coordinates from the \acronym{SMIPS} ("smips_longitude" and
+"smips_latitude")
 }
 \description{
 Extracts the soil moisture at the GPS points provided assuming that they are

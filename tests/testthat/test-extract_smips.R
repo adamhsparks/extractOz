@@ -5,9 +5,20 @@ test_that("extract_smips works", {
     "Tamworth" = c(x = 150.84, y = -31.07)
   )
 
-  w_all <- extract_smips(x = locs, day = "2023-09-23")
-  expect_equal(unique(w_all$location),
+  sm_all <- extract_smips(x = locs, day = "2023-09-23")
+  expect_equal(unique(sm_all$location),
                c("Corrigin", "Merredin", "Tamworth"))
-  expect_s3_class(w_all, "data.frame")
-  expect_length(w_all, 6)
+  expect_s3_class(sm_all, "data.frame")
+  expect_length(sm_all, 6)
+  expect_named(
+    sm_all,
+    c(
+      "location",
+      "longitude",
+      "latitude",
+      "smips_totalbucket_mm_20230923",
+      "smips_longitude",
+      "smips_latitude"
+    )
+  )
 })

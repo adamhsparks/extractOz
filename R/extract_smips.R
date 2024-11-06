@@ -36,7 +36,9 @@
 #'   retrying the download.  This increases as the tries increment.  Defaults to
 #'   1.
 #' @return A [data.table::data.table] with the provided \acronym{GPS}
-#'  coordinates and the respective soil moisture data from \acronym{SMIPS}
+#'  coordinates and the respective soil moisture data from \acronym{SMIPS} and
+#'  coordinates from the \acronym{SMIPS} ("smips_longitude" and
+#'  "smips_latitude")
 #'
 #' @references <https://portal.tern.org.au/metadata/TERN/15728dba-b49c-4da5-9073-13d8abe67d7chttps://portal.tern.org.au/metadata/TERN/d1995ee8-53f0-4a7d-91c2-ad5e4a23e5e0>
 #'
@@ -57,7 +59,6 @@ extract_smips <- function(x,
                           api_key = nert::get_key(),
                           max_tries = 3,
                           initial_delay = 1) {
-
   .check_lonlat(x)
 
   tern <- nert::read_cog(data,
@@ -67,14 +68,22 @@ extract_smips <- function(x,
                          max_tries,
                          initial_delay)
   x <- .create_dt(x)
-  data.table::setnames(x, old = c("x", "y"), new = c("user_x", "user_y"))
+  data.table::setnames(x,
+                       old = c("x", "y"),
+                       new = c("longitude", "latitude"))
   points_sf <- sf::st_as_sf(x,
-                            coords = c("user_x", "user_y"),
+                            coords = c("longitude", "latitude"),
                             crs = terra::crs(tern))
 
   out <- data.table::as.data.table(
     terra::extract(x = tern, y = points_sf, xy = TRUE))
-  data.table::setnames(out, old = c("x", "y"), new = c("smips_x", "smips_y"))
+  out[, date := day]
+
+    data.table::setnames(
+    out,
+    old = c("x", "y", names(out)[[2]]),
+    new = c("smips_longitude", "smips_latitude", paste0("smips_", collection))
+  )
 
   out <- cbind(x, out)[, -c("ID")]
 
