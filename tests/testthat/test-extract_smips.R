@@ -1,4 +1,6 @@
 test_that("extract_smips works", {
+  skip_if_offline()
+  skip_on_ci()
   locs <- list(
     "Merredin" = c(x = 118.28, y = -31.48),
     "Corrigin" = c(x = 117.87, y = -32.33),
