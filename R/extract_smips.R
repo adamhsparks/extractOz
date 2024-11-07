@@ -71,12 +71,10 @@ extract_smips <- function(x,
   data.table::setnames(x,
                        old = c("x", "y"),
                        new = c("longitude", "latitude"))
-  points_sf <- sf::st_as_sf(x,
-                            coords = c("longitude", "latitude"),
-                            crs = terra::crs(tern))
 
   out <- data.table::as.data.table(terra::extract(x = tern,
-                                                  y = points_sf,
+                                                  y = x[, c("longitude",
+                                                            "latitude")],
                                                   xy = TRUE))
   out[, date := as.Date(day)]
 
